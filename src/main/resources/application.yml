@@ -1,0 +1,100 @@
+#server:
+#  port:8085
+#
+#spring:
+#  kafka:
+##    bootstrap-servers: localhost:9092
+##    consumer:
+##      group-id: search-topic-group
+##      auto-offset-reset: earliest
+##      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+##      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+##      properties:
+##        spring:
+##          json:
+##            trusted:
+##              packages: "*"
+#  consumer:
+#    bootstrap-servers:
+#      - localhost:9092
+#    group-id: search-topic-group
+#    auto-offset-reset: earliest
+#    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    value-deserializer: org.apache.kafka.common.serialization.JsonDeserializer
+#    producer:
+#      bootstrap-servers:
+#        - localhost:9092
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.JsonDeserializer
+#
+#
+#  data:
+#    elasticsearch:
+#      client:
+#        uris: http://localhost:9200 # URL of your Elasticsearch instance
+#      repositories:
+#        enabled: true # Enable Elasticsearch repositories
+#
+## Additional Elasticsearch settings (if needed)
+#elasticsearch:
+#  cluster-name: search-cluster # Name of your Elasticsearch cluster
+#  host: localhost # Hostname of your Elasticsearch node
+#  port: 9200 # Port of your Elasticsearch node
+##  username: elastic # Optional: Username for Elasticsearch authentication
+##  password: changeme # Optional: Password for Elasticsearch authentication
+##ingest.geoip.downloader.enabled: false
+##xpack.security.enabled: false
+##xpack.security.transport.ssl.enabled: false
+##xpack.security.http.ssl.enabled: false
+#
+##logging:
+##  level:
+##    org:
+##      elasticsearch: DEBUG # Set the logging level for Elasticsearch
+##
+#
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8085
+
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers:
+        - localhost:9092
+      group-id: search-topic-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      properties:
+#        spring:
+#          json:
+#            trusted:
+#              packages: "*"
+
+  data:
+    elasticsearch:
+      client:
+        uris: http://localhost:9200 # URL of your Elasticsearch instance
+      repositories:
+        enabled: true # Enable Elasticsearch repositories
+
+elasticsearch:
+  cluster-name: search-cluster # Name of your Elasticsearch cluster
+  host: localhost # Hostname of your Elasticsearch node
+  port: 9200 # Port of your Elasticsearch node
+#  username: elastic # Optional: Username for Elasticsearch authentication
+#  password: changeme # Optional: Password for Elasticsearch authentication
+#ingest.geoip.downloader.enabled: false
+#xpack.security.enabled: false
+#xpack.security.transport.ssl.enabled: false
+#xpack.security.http.ssl.enabled: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
